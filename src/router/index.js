@@ -1,8 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Form from '../views/Form.vue'
-import Api from '../views/Api.vue'
+import Form from "../views/Form.vue";
+import Api from "../views/Api.vue";
+import Todo from "../views/Todo.vue";
+import Button from "../views/Button.vue"
+import Grid from "../views/Grid.vue"
+import Alert from "../views/Alert.vue"
 
 Vue.use(VueRouter);
 
@@ -13,6 +17,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/button",
+    name: "Button",
+    component: Button,
+  },
+  {
     path: "/form",
     name: "Form",
     component: Form,
@@ -21,6 +30,21 @@ const routes = [
     path: "/api",
     name: "Api",
     component: Api,
+  },
+  {
+    path: "/todo",
+    name: "Todo",
+    component: Todo,
+  },
+  {
+    path: "/grid",
+    name: "Grid",
+    component: Grid,
+  },
+  {
+    path: "/alert",
+    name: "Alert",
+    component: Alert,
   },
   // {
   //   path: '/about',

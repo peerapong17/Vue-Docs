@@ -12,39 +12,13 @@
       </v-btn>
     </v-toolbar>
     <v-navigation-drawer v-model="drawer" app temporary>
-      <v-list-item routerLink to="/">
-        <v-list-item-action>
-          <v-icon>
-            mdi-home
-          </v-icon>
-        </v-list-item-action>
-
-        <v-list-item-content>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item routerLink to="/form">
-        <v-list-item-action>
-          <v-icon>
-            mdi-file-document-edit
-          </v-icon>
-        </v-list-item-action>
-
-        <v-list-item-content>
-          <v-list-item-title>Form</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item routerLink to="/api">
-        <v-list-item-action>
-          <v-icon>
-            mdi-wifi
-          </v-icon>
-        </v-list-item-action>
-
-        <v-list-item-content>
-          <v-list-item-title>Form</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <NavItem :icon="'mdi-home'" :link="'/'" :page="'Home'" />
+      <NavItem :icon="'mdi-radiobox-marked'" :link="'/button'" :page="'Button'" />
+      <NavItem :icon="'mdi-grid'" :link="'/grid'" :page="'Grid'" />
+      <NavItem :icon="'mdi-file-document-edit'" :link="'/form'" :page="'Form'" />
+      <NavItem :icon="'mdi-wifi'" :link="'/api'" :page="'Api'" />
+      <NavItem :icon="'mdi-book-plus'" :link="'/todo'" :page="'Todo'" />
+      <NavItem :icon="'mdi-exclamation'" :link="'/alert'" :page="'Alert'" />
     </v-navigation-drawer>
     <Dialog :open="open" />
   </nav>
@@ -52,8 +26,9 @@
 
 <script>
 import Dialog from "./Dialog.vue";
+import NavItem from "./NavItem.vue";
 export default {
-  components: { Dialog },
+  components: { Dialog, NavItem },
   data: () => ({
     drawer: false,
     open: false,

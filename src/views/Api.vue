@@ -1,17 +1,22 @@
 <template>
   <v-container class="mt-3">
-    <v-toolbar dense width="400">
-      <v-text-field
-        hide-details
-        single-line
-        v-model="searchInput"
-      ></v-text-field>
-      <v-btn icon @click="onSearch">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    </v-toolbar>
+    <v-text-field
+      class="shrink"
+      hide-details
+      single-line
+      v-model="searchInput"
+      solo
+      placeholder="Search..."
+      append-icon="mdi-magnify"
+      @click:append="onSearch"
+    ></v-text-field>
     <v-layout wrap v-if="datas.length">
-      <Card v-for="data in datas" v-bind:key="data.id" :src="data.largeImageURL" :text="data.tags"/>
+      <Card
+        v-for="data in datas"
+        v-bind:key="data.id"
+        :src="data.largeImageURL"
+        :text="data.tags"
+      />
     </v-layout>
     <!-- <v-progress-circular
       :size="50"
@@ -37,7 +42,7 @@ export default {
           `https://pixabay.com/api/?key=21804730-03999f68bb15cc0c960ed0189&q=${this.searchInput}`
         )
         .then((res) => {
-          console.log(res.data.hits)
+          console.log(res.data.hits);
           this.datas = res.data.hits;
         });
       this.searchInput = "";
@@ -46,4 +51,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.v-text-field {
+  width: 400px;
+}
+</style>
